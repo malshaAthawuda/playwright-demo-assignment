@@ -89,3 +89,16 @@ test('assertionTest', async ({ page }) => {
   await page.getByRole('link', { name: 'Poco Electro' }).click();
   await page.getByRole('button', { name: 'AddOns Featured' }).click();
 });
+
+test('test02', async ({ page }) => {
+  await page.goto('https://ecommerce-playground.lambdatest.io/');
+  await expect(page.getByRole('button', { name: ' My account' })).toBeVisible();
+  await page.getByRole('textbox', { name: 'Search For Products' }).click();
+  await page.getByRole('button', { name: 'Search' }).click();
+
+  await page.locator('#mz-filter-panel-0-0').getByRole('spinbutton', { name: 'Minimum Price' }).click();
+  await page.locator('#mz-filter-panel-0-0').getByRole('spinbutton', { name: 'Minimum Price' }).fill('100');
+  await page.locator('#mz-filter-panel-0-0').getByRole('spinbutton', { name: 'Maximum Price' }).click();
+  await page.locator('#mz-filter-panel-0-0').getByRole('spinbutton', { name: 'Maximum Price' }).fill('2000');
+  await page.waitForTimeout(4000)
+});
