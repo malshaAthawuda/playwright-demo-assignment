@@ -21,7 +21,6 @@ jobs:
     - name: Run Playwright tests
       run: npx playwright test
       env:
-        # Pass GitHub secret or environment variable
         BASE_URL: ${{ secrets.BASE_URL }}
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}

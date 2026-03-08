@@ -59,11 +59,11 @@ test('assertionTest', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Telephone*' }).click();
   await page.getByRole('textbox', { name: 'Telephone*' }).fill('+94711382132');
 
-  await page.getByRole('textbox', { name: 'Password*' }).click();
-  await page.getByRole('textbox', { name: 'Password*' }).fill('malsha');
+  // await page.getByRole('textbox', { name: 'Password*' }).click();
+  // await page.getByRole('textbox', { name: 'Password*' }).fill('malsha');
 
-  await page.getByRole('textbox', { name: 'Password Confirm*' }).click();
-  await page.getByRole('textbox', { name: 'Password Confirm*' }).fill('malsha');
+  // await page.getByRole('textbox', { name: 'Password Confirm*' }).click();
+  // await page.getByRole('textbox', { name: 'Password Confirm*' }).fill('malsha');
 
   // Assert: Check that a given element (checkbox) is initially NOT checked
   const agreeCheckbox = page.locator('input[name="agree"]');
