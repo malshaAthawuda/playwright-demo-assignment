@@ -19,9 +19,20 @@ class ExcelReporter implements Reporter {
     }
 
     onTestEnd(test: TestCase, result: TestResult) {
+        let displayStatus = result.status as string;
+        const outcome = test.outcome();
+
+        if (outcome === 'expected' || outcome === 'flaky') {
+            displayStatus = 'passed';
+        } else if (outcome === 'unexpected') {
+            displayStatus = 'failed';
+        } else if (outcome === 'skipped') {
+            displayStatus = 'skipped';
+        }
+
         this.worksheet.addRow({
             title: test.title,
-            status: result.status,
+            status: displayStatus,
             duration: result.duration,
             errors: result.errors.map(e => e.message).join('\n')
         });
