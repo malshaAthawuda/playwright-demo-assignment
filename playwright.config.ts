@@ -7,9 +7,14 @@ dotenv.config();
 export default defineConfig({
   testDir: './tests',
   timeout: 60 * 1000,
-  reporter: [['list'], ['html', { outputFolder: 'playwright-report' }]],
+  workers: 4,
+  reporter: [
+    ['list'],
+    ['html', { outputFolder: 'playwright-report' }],
+    ['./excel-reporter.ts']
+  ],
   use: {
-    headless: !!process.env.CI,
+    headless: true || !!process.env.CI,
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
   },
