@@ -11,7 +11,8 @@ export default defineConfig({
   reporter: [
     ['list'],
     ['html', { outputFolder: 'playwright-report' }],
-    ['./excel-reporter.ts']
+    ['./excel-reporter.ts'],
+    ['./image-reporter.ts']
   ],
   use: {
     headless: true || !!process.env.CI,
