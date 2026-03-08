@@ -75,8 +75,8 @@ test('assertionTest', async ({ page }) => {
   // Assert: Verify that the checkbox is checked after our click interaction
   await expect(agreeCheckbox).toBeChecked();
 
-  const continueBtn = page.getByRole('button', { name: 'Continue' });
-  await continueBtn.click();
+  // const continueBtn = page.getByRole('button', { name: 'Continue' });
+  // await continueBtn.click();
 
   // Assert: Wait for and verify that registration success URL is reached
   await expect(page).toHaveURL(/.*route=account\/success/);
